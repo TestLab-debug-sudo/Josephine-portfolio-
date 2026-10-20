@@ -8,7 +8,6 @@ import {
   Mail,
   ExternalLink,
   BookOpen,
-  ArrowRight,
 } from "lucide-react";
 import { useData } from "@/context/DataContext";
 import { useToast } from "@/context/ToastContext";
@@ -55,24 +54,6 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Academic Credentials & Identity */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Top Animated Announcement Pill */}
-            <div className="flex flex-wrap items-center gap-2">
-              <Link
-                href="/research?tab=projects"
-                prefetch={true}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-xs hover:bg-emerald-500/15 transition-all group"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                </span>
-                <span className="font-bold">Active National Grant:</span>
-                <span className="truncate max-w-[240px] sm:max-w-[340px]">
-                  DBT Sanctioned ₹74L Diabetic Foot IR Device
-                </span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </div>
 
             {/* Main Headline */}
             <div className="space-y-2">
@@ -131,7 +112,7 @@ export function HeroSection() {
                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:bg-muted text-card-foreground text-xs sm:text-sm font-semibold transition-all shadow-xs"
               >
                 <BookOpen className="w-4 h-4 text-primary" />
-                <span>Active Grants</span>
+                <span>Research Projects</span>
               </Link>
 
               <a

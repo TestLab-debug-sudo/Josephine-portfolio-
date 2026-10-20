@@ -208,13 +208,13 @@ export function MobileHomeExperience() {
 
           <div className="p-4 rounded-2xl bg-card border border-border shadow-xs space-y-1">
             <span className="text-[10px] font-bold uppercase text-muted-foreground block">
-              Funded Grants
+              Keynote Talks
             </span>
             <div className="text-2xl font-extrabold text-heading">
-              ₹76L
+              15+
             </div>
             <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium block">
-              DBT & KARE Supported
+              National & IEEE Sessions
             </span>
           </div>
 
@@ -382,37 +382,37 @@ export function MobileHomeExperience() {
         </div>
       </section>
 
-      {/* 5. MOBILE SPONSORED PROJECTS HIGHLIGHT */}
+      {/* 5. MOBILE RESEARCH HIGHLIGHT */}
       <section className="space-y-3">
         <div className="flex items-center justify-between px-1">
           <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
             <Layers className="w-3.5 h-3.5 text-secondary" />
-            <span>Active Funded Grants</span>
+            <span>Research Specialization</span>
           </h2>
           <Link
-            href="/research?tab=projects"
+            href="/research"
             className="text-xs text-primary font-bold hover:underline"
           >
-            All Projects →
+            All Research →
           </Link>
         </div>
 
-        <div className="p-4 rounded-2xl bg-gradient-to-br from-card to-muted/40 border border-primary/20 shadow-xs space-y-3">
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-card to-muted/40 border border-primary/20 shadow-xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 uppercase">
-              DBT Funded (Active)
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary uppercase">
+              Core Expertise
             </span>
-            <span className="text-xs font-extrabold text-heading">
-              ₹74,00,000
+            <span className="text-xs font-semibold text-muted-foreground">
+              Medical Diagnostics
             </span>
           </div>
 
           <h3 className="text-xs font-bold text-heading leading-snug">
-            Design of an AI-Based IR Grading Device for Early Detection of Diabetic Foot Ulcers
+            Medical Image Processing & Infrared Breast Thermograms
           </h3>
 
           <p className="text-[11px] text-muted-foreground leading-relaxed">
-            Department of Biotechnology (DBT), Govt. of India • Role: Principal Investigator
+            Pattern classification, soft computing, and thermal imaging diagnostics.
           </p>
         </div>
       </section>

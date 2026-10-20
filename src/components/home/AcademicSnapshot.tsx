@@ -56,7 +56,7 @@ export function AcademicSnapshot() {
           ease="power3.out"
           stagger={0.1}
           threshold={0.15}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {/* Card 1: Conversion Rate & Progress Bar */}
           <StatCard
@@ -81,19 +81,7 @@ export function AcademicSnapshot() {
             description="Indexed articles in Scopus and Web of Science across Springer, IEEE, and QIRT journals."
           />
 
-          {/* Card 3: New Inquiries & Dual-Line Trend Chart */}
-          <StatCard
-            label="Funded Grants"
-            value={76}
-            prefix="₹"
-            suffix=" Lakhs"
-            trendText="+9%"
-            trendColor="green"
-            variant="dual-line"
-            description="Sanctioned R&D grants including Department of Biotechnology (₹74L) and KARE Seed Fund (₹2L)."
-          />
-
-          {/* Card 4: Mentorship Cohorts & Vertical Bar Histogram */}
+          {/* Card 3: Mentorship Cohorts & Vertical Bar Histogram */}
           <StatCard
             label="B.Tech Mentorship"
             value={profile.metrics.batchesMentored}
