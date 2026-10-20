@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -9,9 +9,6 @@ import {
   ExternalLink,
   BookOpen,
   ArrowRight,
-  IndianRupee,
-  Users,
-  Mic2,
 } from "lucide-react";
 import { useData } from "@/context/DataContext";
 import { useToast } from "@/context/ToastContext";
@@ -31,48 +28,6 @@ const Lanyard = dynamic(() => import("@/components/ui/Lanyard"), {
   ),
 });
 import SplitText from "@/components/ui/SplitText";
-
-function AnimatedCounter({
-  target,
-  prefix = "",
-  suffix = "",
-}: {
-  target: number;
-  prefix?: string;
-  suffix?: string;
-}) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let startTime: number | null = null;
-    const duration = 1400;
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      // Silky easeOutExpo
-      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      setCount(Math.floor(ease * target));
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        setCount(target);
-      }
-    };
-
-    const animId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(animId);
-  }, [target]);
-
-  return (
-    <span>
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  );
-}
 
 export function HeroSection() {
   const { profile } = useData();
@@ -159,123 +114,6 @@ export function HeroSection() {
               ))}
             </div>
 
-            {/* Quick Metrics Badges with Animated Count-Up, Spring Entrance & Hover Shimmer */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-              {[
-                {
-                  label: "National Grant",
-                  value: 74,
-                  prefix: "₹",
-                  suffix: " Lakhs",
-                  subtitle: "DBT Sanctioned",
-                  href: "/research?tab=projects",
-                  icon: IndianRupee,
-                  badgeColor: "text-emerald-700 dark:text-emerald-300",
-                  glowColor: "hover:border-emerald-500/50 hover:shadow-[0_10px_25px_-4px_rgba(13,110,72,0.20)] dark:hover:shadow-[0_10px_25px_-4px_rgba(52,211,153,0.22)]",
-                  dotColor: "bg-emerald-500",
-                  gradientColor: "from-emerald-500/10 via-transparent to-transparent",
-                },
-                {
-                  label: "Publications",
-                  value: 31,
-                  prefix: "",
-                  suffix: "+ Articles",
-                  subtitle: "Scopus / WoS",
-                  href: "/research?tab=publications",
-                  icon: BookOpen,
-                  badgeColor: "text-primary",
-                  glowColor: "hover:border-primary/50 hover:shadow-[0_10px_25px_-4px_rgba(13,110,72,0.20)] dark:hover:shadow-[0_10px_25px_-4px_rgba(52,211,153,0.22)]",
-                  dotColor: "bg-primary",
-                  gradientColor: "from-primary/10 via-transparent to-transparent",
-                },
-                {
-                  label: "Mentorship",
-                  value: 36,
-                  prefix: "",
-                  suffix: " Batches",
-                  subtitle: "B.Tech Innovations",
-                  href: "/mentorship",
-                  icon: Users,
-                  badgeColor: "text-secondary",
-                  glowColor: "hover:border-secondary/50 hover:shadow-[0_10px_25px_-4px_rgba(226,67,41,0.20)] dark:hover:shadow-[0_10px_25px_-4px_rgba(255,107,87,0.22)]",
-                  dotColor: "bg-secondary",
-                  gradientColor: "from-secondary/10 via-transparent to-transparent",
-                },
-                {
-                  label: "Invited Talks",
-                  value: 15,
-                  prefix: "",
-                  suffix: "+ Keynotes",
-                  subtitle: "ISRO, IEEE, Jeju",
-                  href: "/activity",
-                  icon: Mic2,
-                  badgeColor: "text-accent",
-                  glowColor: "hover:border-accent/50 hover:shadow-[0_10px_25px_-4px_rgba(226,67,41,0.20)] dark:hover:shadow-[0_10px_25px_-4px_rgba(255,107,87,0.22)]",
-                  dotColor: "bg-accent",
-                  gradientColor: "from-accent/10 via-transparent to-transparent",
-                },
-              ].map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 18, scale: 0.94 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.1 + index * 0.08,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    whileHover={{
-                      y: -5,
-                      scale: 1.025,
-                      transition: { duration: 0.2, ease: "easeOut" },
-                    }}
-                    className="relative group"
-                  >
-                    <Link
-                      href={item.href}
-                      className={`block p-3 sm:p-3.5 rounded-2xl bg-card border border-border transition-all duration-300 shadow-xs hover:shadow-md relative overflow-hidden ${item.glowColor}`}
-                    >
-                      {/* Ambient Corner Gradient */}
-                      <div
-                        className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${item.gradientColor} rounded-bl-full pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity`}
-                      />
-
-                      {/* Shimmer sweep effect on hover */}
-                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 dark:via-white/5 to-transparent pointer-events-none" />
-
-                      {/* Top Label & Micro Icon */}
-                      <div className="flex items-center justify-between gap-1 mb-1 relative z-10">
-                        <p className="text-[11px] font-medium text-muted-foreground truncate">
-                          {item.label}
-                        </p>
-                        <Icon className="w-3.5 h-3.5 text-muted-foreground/50 group-hover:text-primary transition-colors shrink-0 group-hover:scale-115 duration-200" />
-                      </div>
-
-                      {/* Main Animated Number */}
-                      <p className="text-lg sm:text-xl font-extrabold text-heading group-hover:text-primary transition-colors tracking-tight relative z-10">
-                        <AnimatedCounter
-                          target={item.value}
-                          prefix={item.prefix}
-                          suffix={item.suffix}
-                        />
-                      </p>
-
-                      {/* Subtitle with Animated Pulse Dot */}
-                      <div className="flex items-center gap-1.5 mt-0.5 relative z-10">
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full ${item.dotColor} animate-pulse shrink-0`}
-                        />
-                        <p className={`text-[10px] font-bold ${item.badgeColor} truncate`}>
-                          {item.subtitle}
-                        </p>
-                      </div>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
 
             {/* CTA Actions */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
