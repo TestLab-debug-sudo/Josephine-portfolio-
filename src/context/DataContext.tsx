@@ -89,7 +89,12 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.profile) setProfile(parsed.profile);
+        if (parsed.profile) {
+          if (!parsed.profile.avatarUrl || parsed.profile.avatarUrl.includes("images.unsplash.com")) {
+            parsed.profile.avatarUrl = "/avatar.jpg";
+          }
+          setProfile(parsed.profile);
+        }
         if (parsed.publications) setPublications(parsed.publications);
         if (parsed.projects) setProjects(parsed.projects);
         if (parsed.courses) setCourses(parsed.courses);

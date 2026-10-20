@@ -11,7 +11,7 @@ export const initialProfileData: AcademicProfile = {
   location: "Krishnankoil, Tamil Nadu, India",
   email: "drjjosephine@gmail.com",
   phoneDisplay: "+91-994-070-6395",
-  avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+  avatarUrl: "/avatar.jpg",
   bioSummary:
     "I am Josephine Selle Jeyanathan, serving as an Associate Professor at Kalasalingam Academy of Research and Education since 2016. With a Ph.D. in Information and Communication Engineering from Anna University, my research focuses on \"Analysis of Breast Thermograms Using Pattern Classification.\" My expertise lies in Medical Image Processing, Soft Computing, and Pattern Classification, highlighted by my active contributions to a project at the Indira Gandhi Centre for Atomic Research from 2012 to 2015.\n\nAs a dedicated member of IEEE and the Biomedical Engineering Society for India, I am committed to advancing technology and promoting biomedical engineering in the country. Additionally, I am an IIEECP certified candidate with a keen interest in incorporating digital pedagogies for teaching and learning processes.",
   careerObjective:

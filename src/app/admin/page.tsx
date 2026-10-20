@@ -896,14 +896,18 @@ export default function AdminPage() {
                     {/* Live Avatar Preview */}
                     <div className="relative group shrink-0">
                       <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-primary shadow-md bg-muted flex items-center justify-center">
-                        {profileForm.avatarUrl ? (
+                        {profileForm.avatarUrl && !profileForm.avatarUrl.includes("images.unsplash.com") ? (
                           <img
                             src={profileForm.avatarUrl}
                             alt="Avatar Preview"
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <User className="w-10 h-10 text-muted-foreground" />
+                          <img
+                            src="/avatar.jpg"
+                            alt="Avatar Preview"
+                            className="w-full h-full object-cover"
+                          />
                         )}
                       </div>
                       <span className="absolute bottom-0 right-0 bg-emerald-500 text-white rounded-full p-1 border-2 border-card">

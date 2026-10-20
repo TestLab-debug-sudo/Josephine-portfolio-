@@ -74,7 +74,7 @@ export function MobileHomeExperience() {
         <div className="relative">
           <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] overflow-hidden border-2 border-primary/30 shadow-elevated relative bg-muted mx-auto">
             <Image
-              src={profile.avatarUrl}
+              src={profile.avatarUrl && !profile.avatarUrl.includes("images.unsplash.com") ? profile.avatarUrl : "/avatar.jpg"}
               alt={profile.name}
               fill
               sizes="128px"
