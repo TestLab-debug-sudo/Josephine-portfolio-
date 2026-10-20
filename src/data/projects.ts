@@ -1,0 +1,116 @@
+import { ResearchProject } from "@/types";
+
+export const initialProjectsData: ResearchProject[] = [
+  {
+    id: "proj-dbt-74l",
+    title: "Design of an AI-Based IR Grading Device for Early Detection of Diabetic Foot Ulcers",
+    role: "Principal Investigator",
+    fundingAgency: "Department of Biotechnology (DBT), Ministry of Science and Technology, Govt. of India",
+    grantNumber: "BT/PR51612/CMD/150/200/2023",
+    amountSanctioned: "₹74,00,000 (74 Lakhs)",
+    amountNumericLakhs: 74,
+    duration: "2023 – Present (Ongoing)",
+    status: "ongoing",
+    domain: "Biomedical Infrared Diagnostics & Edge AI",
+    description:
+      "Development of an intelligent clinical infrared thermographic screening kiosk combining microbolometer sensor arrays, automated plantar registration algorithms, and deep neural network classifiers for pre-ulcerative thermal detection in diabetic neuropathy patients.",
+    technologies: [
+      "Long-Wave Infrared (LWIR) Imaging",
+      "Embedded Edge AI / Jetson Nano",
+      "Convolutional Neural Networks",
+      "Python / PyTorch",
+      "Biomedical Instrumentation",
+    ],
+    collaborators: [
+      "Department of Biotechnology (DBT), Govt. of India",
+      "Kalasalingam Academy of Research and Education",
+      "Clinical Diabetology Partners",
+    ],
+    outcomes: [
+      "Engineered a proprietary dual-plantar IR imaging chamber with calibrated uniform emissivity.",
+      "Achieved >92% sensitivity in spotting sub-clinical thermal inflammation (>2.2°C asymmetry).",
+      "Multiple IEEE / Springer journal and conference disseminations.",
+    ],
+    isFeatured: true,
+  },
+  {
+    id: "proj-kare-seed-2l",
+    title: "An IoT Based Ambient Assistive Technology Grading System for Diabetic Foot Ulcer Patients using Hybrid Machine Learning Techniques",
+    role: "Principal Investigator",
+    fundingAgency: "KARE Seed Money Research Scheme",
+    amountSanctioned: "₹2,00,000 (2 Lakhs)",
+    amountNumericLakhs: 2,
+    duration: "2021 – 2023 (Completed)",
+    status: "completed",
+    domain: "IoT & Ambient Assistive Healthcare",
+    description:
+      "Designed a remote home monitoring mat equipped with matrix temperature sensors and wireless telemetry to capture daily foot plantar thermal maps for remote geriatric and diabetic patient monitoring.",
+    technologies: [
+      "IoT Microcontrollers (ESP32/Arduino)",
+      "Thermal Grid Arrays",
+      "Cloud Telemetry",
+      "MATLAB Machine Learning Toolbox",
+    ],
+    outcomes: [
+      "Functional working prototype developed for bedside thermal anomaly alerts.",
+      "Secured subsequent national DBT grant funding based on preliminary data.",
+      "Mentored B.Tech and M.Tech student batches in prototype fabrication.",
+    ],
+    isFeatured: true,
+  },
+  {
+    id: "proj-igcar-jrf",
+    title: "Artificial Intelligence based Computer Aided Detection for Medical Application",
+    role: "Junior Research Fellow (JRF)",
+    fundingAgency: "Indira Gandhi Centre for Atomic Research (IGCAR), Kalpakkam, Govt. of India",
+    amountSanctioned: "Institutional Research Fellowship (3 Years)",
+    amountNumericLakhs: 15,
+    duration: "2012 – 2015 (Completed)",
+    status: "completed",
+    domain: "Medical Imaging & Computer Vision",
+    description:
+      "Three-year research project at National Engineering College, Kovilpatti in collaboration with IGCAR Kalpakkam, pioneering automated region-of-interest extraction and pattern classification for breast thermograms.",
+    technologies: [
+      "Quantitative Infrared Thermography (QIRT)",
+      "Wavelet and Contourlet Transforms",
+      "Statistical Texture Descriptors (GLCM)",
+      "MATLAB Image Processing",
+    ],
+    collaborators: [
+      "IGCAR Kalpakkam",
+      "National Engineering College, Kovilpatti",
+    ],
+    outcomes: [
+      "Pioneered lateral view thermographic analysis protocols.",
+      "Formed foundational baseline for PhD dissertation under Anna University, Chennai.",
+      "Resulted in premier publications in Quantitative InfraRed Thermography Journal and Springer.",
+    ],
+    isFeatured: true,
+  },
+  {
+    id: "proj-iot-prototypes",
+    title: "Applied IoT & Smart Mechatronics Translational Innovations",
+    role: "Faculty Project Supervisor & Mentor",
+    fundingAgency: "Institutional & Student Innovation Cells (P2BL)",
+    amountSanctioned: "Institutional Innovation Grants",
+    amountNumericLakhs: 1.5,
+    duration: "2021 – 2025 (Ongoing)",
+    status: "ongoing",
+    domain: "Embedded IoT & Societal Solutions",
+    description:
+      "Supervised over 36 student batches resulting in patent-ready IoT innovations addressing household safety, agricultural health, and maritime security.",
+    technologies: [
+      "Time-of-Flight (ToF) Distance Sensors",
+      "Servo-Actuated Mechanical Regulators",
+      "GPS & LoRa Telemetry",
+      "Microcontroller Firmware",
+    ],
+    outcomes: [
+      "Smart Milk Boil Prevention System with ToF and servo stove throttles (ICTMIM 2025).",
+      "IoT Whistle Counter for pressure cooker monitoring and leak safety.",
+      "GPS Assistive Maritime Communication beacon for coastal fishermen.",
+      "Non-destructive fruit bruising detection using thermal imaging.",
+    ],
+    isFeatured: false,
+  },
+];

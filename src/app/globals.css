@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0d6e48; /* Emerald green */
+  --color-secondary: #e24329; /* Vermilion */
+  --color-accent: #e24329; /* Vermilion */
+  --color-button: #0d6e48; /* Emerald green */
+  --color-heading: #132b20; /* Deep Forest Emerald black */
+  --color-background: #faf6ee; /* Warm ivory */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1c2b22;
+  --color-border: #ebe4d8;
+  --color-muted: #f2ebe0;
+  --color-muted-foreground: #5c6b60;
+}
+
+.dark {
+  --color-primary: #34d399; /* Luminous emerald */
+  --color-secondary: #ff6b57; /* Radiant vermilion */
+  --color-accent: #ff6b57; /* Radiant vermilion */
+  --color-button: #0d7a51; /* Emerald button */
+  --color-heading: #faf6ee; /* Warm ivory */
+  --color-background: #0c1410; /* Deep midnight emerald */
+
+  --color-card: #131e18;
+  --color-card-foreground: #faf6ee;
+  --color-border: rgba(52, 211, 153, 0.16);
+  --color-muted: #192720;
+  --color-muted-foreground: #9db5a7;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-card-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Glassmorphism & Header */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-nav {
+  background: rgba(12, 20, 16, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.academic-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.academic-card:hover {
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.06), 0 6px 10px -4px rgba(0, 0, 0, 0.03);
+}
+
+.dark .academic-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dark .academic-card:hover {
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.45);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+/* Academic bibliography print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* Moving Text & Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 3.5s ease-in-out infinite;
+}
+
+/* Interactive 3D Stack Deck Cards */
+.deck-cards {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  max-width: 38em;
+  margin: 1.5rem auto 2.5rem;
+  min-height: 480px;
+}
+
+.deck-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 10px 30px -5px rgba(67, 49, 40, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+  transform-origin: 0 0;
+  transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s,
+    background 0.4s linear,
+    box-shadow 0.4s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.deck-card:last-child {
+  margin-bottom: 0;
+}
+
+.deck-card--next {
+  z-index: 5;
+  transform: translateY(-22px) rotate(4deg) translateX(22px) scale(0.98);
+  opacity: 0.94;
+}
+
+.deck-card--third {
+  z-index: 3;
+  transform: translateY(-40px) rotate(7deg) translateX(42px) scale(0.95);
+  opacity: 0.85;
+}
+
+.deck-card--out {
+  animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  z-index: 1;
+  opacity: 0.75;
+}
+
+@keyframes card-out {
+  0% {
+    z-index: 20;
+    transform: translateY(0px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-115%) rotate(-5deg) translateX(-40px);
+  }
+  80% {
+    z-index: 1;
+  }
+  100% {
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  }
+}
+
+.deck-card--current {
+  cursor: auto;
+  user-select: auto;
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  transform: rotate(-1.5deg) translateX(0%) scale(1);
+  box-shadow: 0 20px 45px -10px rgba(67, 49, 40, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+}
+
+.dark .deck-card {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 4px 10px -2px rgba(0, 0, 0, 0.4);
+}
+
+.dark .deck-card--current {
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 8px 20px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   Page Transition Effect (Cubic-Bezier Translate3D Slider)
+   ========================================================================== */
+.page-transition-wrapper {
+  animation: pageSlideIn 0.45s cubic-bezier(0, 0, 0.21, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes pageSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Page Transition Layer Accent Bar (#one: #493323, #two: #91684a, #three: #eaac7f, #four: #99bbad, #five: #383a56) */
+.page-transition-accent-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #0d6e48 0%,
+    #10b981 35%,
+    #e24329 70%,
+    #ff6b57 100%
+  );
+  animation: pageAccentSweep 0.55s cubic-bezier(0, 0, 0.21, 1) forwards;
+}
+
+@keyframes pageAccentSweep {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 1;
+  }
+  80% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Universal Mobile & iOS Safe Area Optimization
+   ========================================================================== */
+.safe-top {
+  padding-top: max(12px, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.safe-x {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Fluid Responsive Typography using clamp() */
+.text-fluid-h1 {
+  font-size: clamp(1.75rem, 5vw + 1rem, 3.5rem);
+  line-height: 1.15;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(1.35rem, 3.5vw + 0.8rem, 2.5rem);
+  line-height: 1.25;
+}
+
+.text-fluid-body {
+  font-size: clamp(0.875rem, 1.2vw + 0.65rem, 1.05rem);
+  line-height: 1.6;
+}
+
+/* Hide scrollbar for clean horizontal card rails on iOS while maintaining touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+

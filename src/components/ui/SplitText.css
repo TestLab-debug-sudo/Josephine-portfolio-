@@ -1,0 +1,12 @@
+.split-parent {
+  display: inline-block;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.split-parent .split-line,
+.split-parent .split-word,
+.split-parent .split-char {
+  display: inline-block;
+  position: relative;
+}
